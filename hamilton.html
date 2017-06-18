@@ -10,21 +10,56 @@
   </style>
 </head>
 <body>
-  <h1 onclick="toggleDetails()">Alexander Hamilton</h1>
-  <p class="hamilton alexander broadway founding fathers" onmousemove="showCoordinates(event)">Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
+  <h1 id="header" onclick="changeColor(this)">Alexander Hamilton</h1>
+  <h1 id="header" onclick="changeColor(this)">Eliza Schuyler</h1>
+  <h1 id="header" onclick="changeColor(this)">Aaron Burr</h1>
+  <p class="hamilton alexander broadway founding fathers">Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
 
   <button onclick="changeBio()">Change Bio</button>
+  <button onclick="changeAllColor()">Change Header</button>
+  <button onclick="moveHeader()">Move Header</button>
 
-  <div id="coords">HELLOOOOOOOOO</div>
+  <!-- <div id="coords">HELLOOOOOOOOO</div> -->
   <script>
-
-  function showCoordinates(event) {
-    var x = event.clientX;
-    var y = event.clientY;
-    var coords = "X coords: " + x + ", Y coords: " + y;
-    console.log(coords);
-    document.getElementById("coords").innerHTML = coords;
+  function changeAllColor() {
+    var h1tags = document.querySelectorAll('h1');
+    for (var i = 0; i < h1tags.length; i++) {
+      h1tags[i].style['color'] = generateColor();
+    }
   }
+  function changeColor(h1tag) {
+    var colors = ['red', 'blue', 'purple', 'green'];
+    // var numbers = Math.floor(Math.random() * 4);
+    // console.log(numbers);
+    // var color = colors[numbers];
+    // console.log(color);
+    // var color = Math.floor(Math.random() * 16777215).toString(16);
+
+    h1tag.style['color'] = generateColor();
+  }
+
+  function generateColor() {
+    var color = '#';
+    var letters = '0123456789ABCDEF';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    console.log(color);
+    return color;
+  }
+
+  function moveHeader() {
+    var h1 = document.getElementById('header');
+    h1.style['padding-left'] = '100px';
+  }
+
+  // function showCoordinates(event) {
+  //   var x = event.clientX;
+  //   var y = event.clientY;
+  //   var coords = "X coords: " + x + ", Y coords: " + y;
+  //   console.log(coords);
+  //   document.getElementById("coords").innerHTML = coords;
+  // }
 
   function changeBio() {
     var bio = document.querySelector('p');
@@ -33,7 +68,7 @@
   function toggleDetails() {
     var ptag = document.querySelector('p');
     ptag.classList.toggle('purpleHippo');
-    // if (ptag.style['padding'] === 'none') {
+    // if (ptag.style['display'] === 'none') {
     //   ptag.style['display'] = 'block';
     // } else {
     //   ptag.style['display'] = 'none';
