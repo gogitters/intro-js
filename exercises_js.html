@@ -181,10 +181,50 @@
 //     }
 // }
 
-function sayHello() {
-  console.log("Hello!");
+// function sayHello() {
+//   console.log("Hello!");
+// }
+// sayHello();
+
+// function sum(numberOne, numberTwo) {
+//     return numberOne + numberTwo;
+// }
+
+// console.log(sum(2,4));
+
+// function avg(array) {
+//     var sum = 0;
+//     for(var i = 0; i < array.length; i++) {
+//         sum += array[i];
+//         // sum = sum + array[i];
+//     }
+//     return sum / array.length;
+// }
+
+// console.log(avg([1,2,3,4]));
+
+// var book = {name: "1984",
+            // year: 1952,
+            // pages: 1984,
+            // description: "Blah blah blah",
+            // author: "George Orwell",
+            // printMessage: function() {
+            //     console.log("The book " + this.name + " is written by " + this.author + " and has " + this.pages + " number of pages.");
+            // }};
+// book.printMessage();
+
+function Book(nameTitle, author) {
+    this.title = nameTitle;
+    this.author = author;
+    this.printMessage = function() { 
+        console.log(this.title + " is written by " + this.author);
+    };
 }
-sayHello();
+
+var book = new Book("1984", "George Orwell");
+
+book.printMessage();
+console.log(book.title);
   </script>
 </body>
 </html>

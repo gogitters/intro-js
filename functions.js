@@ -117,3 +117,6 @@ console.log(civic.year);
 console.log(mondeo.year);
 console.log(mondeo.printMessage());
 console.log(civic.printMessage());
+civic.condition = "new";
+console.log(civic);
+console.log(civic.condition);

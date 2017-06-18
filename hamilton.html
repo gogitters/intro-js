@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example</title>
+  <!-- <script src=""></script> -->
+  <style>
+    .purpleHippo {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 onclick="toggleDetails()">Alexander Hamilton</h1>
+  <p class="hamilton alexander broadway founding fathers" onmousemove="showCoordinates(event)">Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
+
+  <button onclick="changeBio()">Change Bio</button>
+
+  <div id="coords">HELLOOOOOOOOO</div>
+  <script>
+
+  function showCoordinates(event) {
+    var x = event.clientX;
+    var y = event.clientY;
+    var coords = "X coords: " + x + ", Y coords: " + y;
+    console.log(coords);
+    document.getElementById("coords").innerHTML = coords;
+  }
+
+  function changeBio() {
+    var bio = document.querySelector('p');
+    bio.innerHTML = "Throwing away your shot";
+  }
+  function toggleDetails() {
+    var ptag = document.querySelector('p');
+    ptag.classList.toggle('purpleHippo');
+    // if (ptag.style['padding'] === 'none') {
+    //   ptag.style['display'] = 'block';
+    // } else {
+    //   ptag.style['display'] = 'none';
+    // }
+  }
+  </script>
+</body>
+</html>
