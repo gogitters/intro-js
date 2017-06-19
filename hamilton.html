@@ -21,59 +21,59 @@
 
   <!-- <div id="coords">HELLOOOOOOOOO</div> -->
   <script>
-  function changeAllColor() {
-    var h1tags = document.querySelectorAll('h1');
-    for (var i = 0; i < h1tags.length; i++) {
-      h1tags[i].style['color'] = generateColor();
-    }
+function changeAllColor() {
+  var h1tags = document.querySelectorAll('h1');
+  for (var i = 0; i < h1tags.length; i++) {
+    h1tags[i].style['color'] = generateColor();
   }
-  function changeColor(h1tag) {
-    var colors = ['red', 'blue', 'purple', 'green'];
-    // var numbers = Math.floor(Math.random() * 4);
-    // console.log(numbers);
-    // var color = colors[numbers];
-    // console.log(color);
-    // var color = Math.floor(Math.random() * 16777215).toString(16);
+}
+function changeColor(h1tag) {
+  // var colors = ['red', 'blue', 'purple', 'green'];
+  // var numbers = Math.floor(Math.random() * 4);
+  // console.log(numbers);
+  // var color = colors[numbers];
+  // console.log(color);
+  // var color = Math.floor(Math.random() * 16777215).toString(16);
 
-    h1tag.style['color'] = generateColor();
+  h1tag.style['color'] = generateColor();
+}
+
+function generateColor() {
+  var color = '#';
+  var letters = '0123456789ABCDEF';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
   }
+  console.log(color);
+  return color;
+}
 
-  function generateColor() {
-    var color = '#';
-    var letters = '0123456789ABCDEF';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    console.log(color);
-    return color;
-  }
+function moveHeader() {
+  var h1 = document.getElementById('header');
+  h1.style['padding-left'] = '100px';
+}
 
-  function moveHeader() {
-    var h1 = document.getElementById('header');
-    h1.style['padding-left'] = '100px';
-  }
+// function showCoordinates(event) {
+//   var x = event.clientX;
+//   var y = event.clientY;
+//   var coords = "X coords: " + x + ", Y coords: " + y;
+//   console.log(coords);
+//   document.getElementById("coords").innerHTML = coords;
+// }
 
-  // function showCoordinates(event) {
-  //   var x = event.clientX;
-  //   var y = event.clientY;
-  //   var coords = "X coords: " + x + ", Y coords: " + y;
-  //   console.log(coords);
-  //   document.getElementById("coords").innerHTML = coords;
+function changeBio() {
+  var bio = document.querySelector('p');
+  bio.innerHTML = "Throwing away your shot";
+}
+function toggleDetails() {
+  var ptag = document.querySelector('p');
+  ptag.classList.toggle('purpleHippo');
+  // if (ptag.style['display'] === 'none') {
+  //   ptag.style['display'] = 'block';
+  // } else {
+  //   ptag.style['display'] = 'none';
   // }
-
-  function changeBio() {
-    var bio = document.querySelector('p');
-    bio.innerHTML = "Throwing away your shot";
-  }
-  function toggleDetails() {
-    var ptag = document.querySelector('p');
-    ptag.classList.toggle('purpleHippo');
-    // if (ptag.style['display'] === 'none') {
-    //   ptag.style['display'] = 'block';
-    // } else {
-    //   ptag.style['display'] = 'none';
-    // }
-  }
+}
   </script>
 </body>
 </html>
