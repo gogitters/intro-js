@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example</title>
+
+  <style>
+    .complete {
+      text-decoration: line-through;
+    }
+
+    .hidden {
+      display: none;
+      /*visibility: hidden;*/
+    }
+  </style>
+</head>
+<body>
+  <p onclick="toggleComplete(this)">Pay bills</p>
+  <p onclick="toggleComplete(this)">Wash car</p>
+  <p onclick="toggleComplete(this)">Get laundry</p>
+
+  <button onclick="hideComplete()">Hide All Completed</button>
+  <button onclick="showAll()">Show All Tasks</button>
+
+  <div id="number-count"></div>
+
+  <script>
+
+    function showAll() {
+      var completedTasks = document.querySelectorAll('.hidden');
+      for (var i = 0; i < completedTasks.length; i++) {
+        completedTasks[i].classList.remove('hidden');
+      }
+    }
+    function toggleComplete(ptag) {
+      ptag.classList.toggle('complete');
+      incompleteTaskCount();
+      // var completedTasks = document.querySelectorAll('.complete');
+      // var numberCount = document.getElementById('number-count');
+      // numberCount.innerHTML = completedTasks.length;
+    }
+
+    function incompleteTaskCount() {
+      var allTasks = document.querySelectorAll('p');
+      var numberCount = document.getElementById('number-count');
+      var counter = 0;
+      for (var i = 0; i < allTasks.length; i++) {
+        if (!allTasks[i].classList.contains('complete')) {
+          counter += 1;
+        }
+      }
+      numberCount.innerHTML = counter;
+
+    }
+
+    function hideComplete() {
+      var completedTasks = document.querySelectorAll('.complete');
+      console.log("The following is completed tasks array:");
+      console.log(completedTasks);
+      for (var i = 0; i < completedTasks.length; i++) {
+        completedTasks[i].classList.add('hidden');
+      }
+
+
+    }
+  </script>
+</body>
+</html>
